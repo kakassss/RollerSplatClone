@@ -50,25 +50,28 @@ public class PlayerMovement : MonoBehaviour
         if (canMove)
         {
             IsVelocityZero();
-
+            //Up
             if (difference.y > 0 && difference.x > -halfOne && difference.x < halfOne && isMoving)
             {
                 rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX |
                     RigidbodyConstraints.FreezePositionY;
                 rb.velocity = new Vector3(0, 0, one * speed);
             }
+            //Down
             if (difference.y < 0 && difference.x > -halfOne && difference.x < halfOne && isMoving)
             {
                 rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX |
                     RigidbodyConstraints.FreezePositionY;
                 rb.velocity = new Vector3(0, 0, -one * speed);
             }
+            //Right
             if (difference.x > 0 && difference.y > -halfOne && difference.y < halfOne && isMoving)
             {
                 rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ |
                     RigidbodyConstraints.FreezePositionY;
                 rb.velocity = new Vector3(one * speed, 0, 0);
             }
+            //Left
             if (difference.x < 0 && difference.y > -halfOne && difference.y < halfOne && isMoving)
             {
                 rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ |
