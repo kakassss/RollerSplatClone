@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 lastPos;
 
     private float one = 1f;
+    private float halfOne = 0.5f;
     private bool isMoving = false;
 
     private void Start()
@@ -50,25 +51,25 @@ public class PlayerMovement : MonoBehaviour
         {
             IsVelocityZero();
 
-            if (difference.y > 0 && difference.x > -0.5f && difference.x < 0.5f && isMoving)
+            if (difference.y > 0 && difference.x > -halfOne && difference.x < halfOne && isMoving)
             {
                 rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX |
                     RigidbodyConstraints.FreezePositionY;
                 rb.velocity = new Vector3(0, 0, one * speed);
             }
-            if (difference.y < 0 && difference.x > -0.5f && difference.x < 0.5f && isMoving)
+            if (difference.y < 0 && difference.x > -halfOne && difference.x < halfOne && isMoving)
             {
                 rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX |
                     RigidbodyConstraints.FreezePositionY;
                 rb.velocity = new Vector3(0, 0, -one * speed);
             }
-            if (difference.x > 0 && difference.y > -0.5f && difference.y < 0.5f && isMoving)
+            if (difference.x > 0 && difference.y > -halfOne && difference.y < halfOne && isMoving)
             {
                 rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ |
                     RigidbodyConstraints.FreezePositionY;
                 rb.velocity = new Vector3(one * speed, 0, 0);
             }
-            if (difference.x < 0 && difference.y > -0.5f && difference.y < 0.5f && isMoving)
+            if (difference.x < 0 && difference.y > -halfOne && difference.y < halfOne && isMoving)
             {
                 rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ |
                     RigidbodyConstraints.FreezePositionY;
